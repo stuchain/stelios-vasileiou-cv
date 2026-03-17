@@ -323,6 +323,146 @@ section[id] {
   outline-offset: 2px;
 }
 
+/* Projects section */
+#projects {
+  padding: 2rem 1rem;
+}
+
+#projects h2 {
+  margin: 0 0 1.5rem;
+}
+
+.projects-loading,
+.projects-error,
+.projects-empty {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.projects-error {
+  color: var(--accent);
+}
+
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-chip {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  border: var(--border-width) solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-chip--active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.projects-subheading {
+  margin: 1.5rem 0 0.75rem;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--text);
+}
+
+.projects-subheading:first-of-type {
+  margin-top: 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.projects-grid--featured {
+  margin-bottom: 0.5rem;
+}
+
+.repo-card {
+  margin: 0;
+}
+
+.repo-card-panel {
+  padding: 1rem 1.25rem;
+  height: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.repo-card:hover .repo-card-panel {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.repo-card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.repo-card-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.repo-card-link:hover {
+  text-decoration: underline;
+}
+
+.repo-card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.repo-card-external {
+  font-size: 0.75em;
+  opacity: 0.8;
+}
+
+.repo-card-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.repo-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.repo-card-lang {
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.repo-card-stars {
+  white-space: nowrap;
+}
+
 /* Contact section */
 #contact {
   padding: 2rem 1rem;
