@@ -73,3 +73,5 @@ All owner-specific content is edited in **`src/data/`**:
 - **Social links** (GitHub, LinkedIn, email) – `social.ts`
 
 The CV PDF path, LinkedIn URL, and email link are placeholders. Comments in the code indicate where to replace them with your own values.
+
+**Favicon:** A simple pixel-style placeholder favicon is in `public/favicon.ico`. You can replace it by dropping your own `favicon.ico` (e.g. 16×16 or 32×32) into `public/`; no code changes needed.
