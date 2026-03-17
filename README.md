@@ -40,8 +40,11 @@ Output is in the `dist/` directory.
 
 The workflow uses **GitHub Actions** (upload-pages-artifact + deploy-pages). The site URL depends on the **repository name**:
 
+- Repo **`stuchain.github.io`** → https://stuchain.github.io/ (root URL)
 - Repo **`portfolio`** → https://stuchain.github.io/portfolio/
 - Repo **`stelios-vasileiou-cv`** → https://stuchain.github.io/stelios-vasileiou-cv/
+
+**404 redirect:** When a visitor hits an unknown path (e.g. `/some/missing/page`), GitHub Pages serves `public/404.html`, which redirects to `/` and shows a “Go home” link so they land on the SPA.
 
 ### One-time setup (do this first)
 
@@ -63,7 +66,7 @@ The workflow uses **GitHub Actions** (upload-pages-artifact + deploy-pages). The
 
 ## Editing content
 
-All owner-specific content is edited in **`src/data/`**:
+All editable content lives in **`src/data/`**:
 
 - **Profile** (name, tagline, location, avatar) – `profile.ts`
 - **About** – `bio.ts`
@@ -72,6 +75,6 @@ All owner-specific content is edited in **`src/data/`**:
 - **Featured repos** – `featuredRepos.ts`
 - **Social links** (GitHub, LinkedIn, email) – `social.ts`
 
-The CV PDF path, LinkedIn URL, and email link are placeholders. Comments in the code indicate where to replace them with your own values.
+Replace the following placeholders where indicated in the code: **CV PDF path** (e.g. in `src/components/CV.tsx`, set the Download CV link `href` to `/cv.pdf` after adding a PDF to `public/`); **LinkedIn URL** (in `src/data/social.ts`); **email link** (in `src/data/social.ts`, use a `mailto:` or contact URL).
 
 **Favicon:** A simple pixel-style placeholder favicon is in `public/favicon.ico`. You can replace it by dropping your own `favicon.ico` (e.g. 16×16 or 32×32) into `public/`; no code changes needed.

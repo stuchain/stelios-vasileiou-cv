@@ -3,15 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
-    <script>
-      // SPA fallback: redirect to app root (works for any repo: /portfolio/, /stelios-vasileiou-cv/, etc.)
-      var segments = location.pathname.split('/').filter(Boolean);
-      var base = '/' + (segments[0] || '') + '/';
-      location.replace(base);
-    </script>
+    <meta http-equiv="refresh" content="0;url=/" />
+    <title>Redirecting…</title>
   </head>
   <body>
-    <p>Redirecting…</p>
+    <p>Redirecting… <a href="/">Go home</a></p>
   </body>
 </html>
