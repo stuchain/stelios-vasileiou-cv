@@ -130,6 +130,7 @@ or simply run `npm run dev` — the generator runs automatically before the dev 
 │   │   ├── Hero.tsx            # Centered hero glass card
 │   │   ├── About.tsx           # Bio section
 │   │   ├── CV.tsx              # Education & experience timeline
+│   │   ├── Footer.tsx          # Footer
 │   │   ├── Projects.tsx        # Project cards with language filters
 │   │   ├── Skills.tsx          # Skill categories
 │   │   ├── Contact.tsx         # Social links & contact info

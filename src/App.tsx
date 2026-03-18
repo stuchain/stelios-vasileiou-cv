@@ -7,6 +7,7 @@ import CV from "./components/CV";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import BackToTop from "./components/BackToTop";
+import Footer from "./components/Footer";
 import AnimatedBackground from "./components/ui/AnimatedBackground";
 import SettingsFAB from "./components/ui/SettingsFAB";
 import { useActiveSection } from "./hooks/useActiveSection";
@@ -62,6 +63,7 @@ function AppContent() {
       <CV />
       <Projects />
       <Contact />
+      <Footer />
       <BackToTop visible={activeSectionId !== null && activeSectionId !== "hero"} />
       <SettingsFAB />
     </>

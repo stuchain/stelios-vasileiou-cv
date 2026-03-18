@@ -6,8 +6,8 @@ import useLocalPointer from "../hooks/useLocalPointer";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
-  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
