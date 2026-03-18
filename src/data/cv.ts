@@ -5,11 +5,14 @@ export interface CVEntry {
   title: string
   org: string
   description?: string
+  thesisUrl?: string
+  thesisLabel?: string
 }
 
 export interface CVData {
   education: CVEntry[]
   experience: CVEntry[]
+  secondaryExperience?: CVEntry[]
   skills: string[]
   interests: string[]
 }

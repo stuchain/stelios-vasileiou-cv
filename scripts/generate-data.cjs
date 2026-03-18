@@ -31,14 +31,23 @@ const bio = Array.isArray(data.bio) ? data.bio : (data.bio ? [data.bio] : [])
 
 const education = Array.isArray(data.education) ? data.education : []
 const experience = Array.isArray(data.experience) ? data.experience : []
+const secondaryExperience = Array.isArray(data.secondaryExperience) ? data.secondaryExperience : []
 const cv = {
   education: education.map((e) => ({
     period: e.period ?? '',
     title: e.title ?? '',
     org: e.org ?? '',
     description: e.description,
+    thesisUrl: e.thesisUrl,
+    thesisLabel: e.thesisLabel,
   })),
   experience: experience.map((e) => ({
+    period: e.period ?? '',
+    title: e.title ?? '',
+    org: e.org ?? '',
+    description: e.description,
+  })),
+  secondaryExperience: secondaryExperience.map((e) => ({
     period: e.period ?? '',
     title: e.title ?? '',
     org: e.org ?? '',

@@ -375,6 +375,25 @@ section[id] + section[id] {
   line-height: 1.5;
 }
 
+.cv-entry-thesis {
+  margin: 0.75rem 0 0;
+}
+
+.cv-entry-thesis-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(126, 231, 135, 0.6);
+}
+
+.cv-entry-thesis-link:hover {
+  text-decoration: underline;
+}
+
+.cv-entry-thesis-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .cv-list {
   list-style: disc;
   margin: 0 auto;

@@ -4,6 +4,7 @@ import Skills from './Skills'
 import { useInView } from '../hooks/useInView'
 
 function CVEntryCard({ entry }: { entry: CVEntry }) {
+  const thesisLabel = entry.thesisLabel?.trim() || 'View thesis'
   return (
     <article className="cv-entry">
       <PixelPanel>
@@ -11,6 +12,18 @@ function CVEntryCard({ entry }: { entry: CVEntry }) {
         <h4 className="cv-entry-title">{entry.title}</h4>
         <p className="cv-entry-org">{entry.org}</p>
         {entry.description && <p className="cv-entry-desc">{entry.description}</p>}
+        {entry.thesisUrl && (
+          <p className="cv-entry-thesis">
+            <a
+              href={entry.thesisUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cv-entry-thesis-link"
+            >
+              {thesisLabel} ↗
+            </a>
+          </p>
+        )}
       </PixelPanel>
     </article>
   )
@@ -33,6 +46,15 @@ export default function CV() {
         {cv.experience.map((entry, i) => (
           <CVEntryCard key={i} entry={entry} />
         ))}
+
+        {cv.secondaryExperience && cv.secondaryExperience.length > 0 && (
+          <>
+            <h3>Other experience (seasonal)</h3>
+            {cv.secondaryExperience.map((entry, i) => (
+              <CVEntryCard key={`secondary-${i}`} entry={entry} />
+            ))}
+          </>
+        )}
 
         <Skills />
       </div>
