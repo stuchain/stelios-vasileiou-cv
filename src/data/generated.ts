@@ -39,9 +39,8 @@ export const cv: CVData = {
       "period": "10/2020 – 02/2025",
       "title": "Bachelor of Computer Science (BSc, 240 ECTs)",
       "org": "Athens University of Economics and Business (AUEB), Athens, Greece",
-      "description": "Thesis: Analysis of the Ethereum Ecosystem & Applications of Tokenization.",
       "thesisUrl": "https://github.com/stuchain/AUEB/tree/main/Thesis",
-      "thesisLabel": "Bachelor thesis on Ethereum tokenization"
+      "thesisLabel": "Thesis: Analysis of the Ethereum Ecosystem & Applications of Tokenization"
     }
   ],
   "experience": [

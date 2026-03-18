@@ -1,23 +1,24 @@
 import type { ReactNode } from "react";
 
-export interface PixelButtonProps {
+export interface GlassButtonProps {
   children: ReactNode;
   href?: string;
   onClick?: () => void;
   variant?: "primary" | "secondary";
   className?: string;
+  type?: "button" | "submit";
 }
 
-export default function PixelButton({
+export default function GlassButton({
   children,
   href,
   onClick,
   variant = "primary",
   className = "",
-}: PixelButtonProps) {
-  const variantClass = variant === "primary" ? "pixel-btn--primary" : "pixel-btn--secondary";
-  const baseClass = `pixel-btn ${variantClass} ${className}`.trim();
-
+  type = "button",
+}: GlassButtonProps) {
+  const variantClass = variant === "primary" ? "glass-btn--primary" : "glass-btn--secondary";
+  const baseClass = `glass-btn ${variantClass} ${className}`.trim();
   const isExternal = href?.startsWith("http") || href?.startsWith("mailto:") || href?.startsWith("//");
 
   if (href) {
@@ -33,7 +34,7 @@ export default function PixelButton({
   }
 
   return (
-    <button type="button" className={baseClass} onClick={onClick}>
+    <button type={type} className={baseClass} onClick={onClick}>
       {children}
     </button>
   );

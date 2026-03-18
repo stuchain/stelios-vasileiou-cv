@@ -1,28 +1,28 @@
-import type { RepoMinimal } from '../data/generated'
-import PixelPanel from './ui/PixelPanel'
+import type { RepoMinimal } from "../data/generated";
+import GlassPanel from "./ui/GlassPanel";
 
 function formatUpdatedAt(updated_at: string): string {
-  if (!updated_at) return '—'
+  if (!updated_at) return "\u2014";
   try {
-    const date = new Date(updated_at)
-    if (Number.isNaN(date.getTime())) return '—'
-    return new Intl.DateTimeFormat('en-GB', { month: 'short', year: 'numeric' }).format(date)
+    const date = new Date(updated_at);
+    if (Number.isNaN(date.getTime())) return "\u2014";
+    return new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric" }).format(date);
   } catch {
-    return '—'
+    return "\u2014";
   }
 }
 
 export interface RepoCardProps {
-  repo: RepoMinimal
+  repo: RepoMinimal;
 }
 
 export default function RepoCard({ repo }: RepoCardProps) {
-  const description = repo.description?.trim() || 'No description'
-  const updatedLabel = formatUpdatedAt(repo.updated_at)
+  const description = repo.description?.trim() || "No description";
+  const updatedLabel = formatUpdatedAt(repo.updated_at);
 
   return (
     <article className="repo-card">
-      <PixelPanel className="repo-card-panel">
+      <GlassPanel className="repo-card-panel" hoverable>
         <h3 className="repo-card-title">
           <a
             href={repo.html_url}
@@ -36,15 +36,13 @@ export default function RepoCard({ repo }: RepoCardProps) {
         </h3>
         <p className="repo-card-desc">{description}</p>
         <div className="repo-card-meta">
-          {repo.language && (
-            <span className="repo-card-lang">{repo.language}</span>
-          )}
+          {repo.language && <span className="repo-card-lang">{repo.language}</span>}
           <span className="repo-card-stars" aria-label={`${repo.stargazers_count} stars`}>
             ★ {repo.stargazers_count}
           </span>
           <span className="repo-card-date">Updated {updatedLabel}</span>
         </div>
-      </PixelPanel>
+      </GlassPanel>
     </article>
-  )
+  );
 }

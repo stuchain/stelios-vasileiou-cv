@@ -3,5 +3,5 @@ export interface BlinkingCursorProps {
 }
 
 export default function BlinkingCursor({ className = "" }: BlinkingCursorProps) {
-  return <span className={`blinking-cursor ${className}`.trim()} aria-hidden="true" />;
+  return <span className={`blinking-cursor ${className}`.trim()} aria-hidden="true" role="presentation" />;
 }

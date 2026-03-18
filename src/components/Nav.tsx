@@ -1,4 +1,6 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { social } from "../data/generated";
+import { useTheme } from "../contexts/ThemeContext";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -13,6 +15,8 @@ interface NavProps {
 }
 
 export default function Nav({ activeSectionId }: NavProps) {
+  const { mode, toggleMode } = useTheme();
+
   return (
     <nav className="nav-bar" aria-label="Main navigation">
       <ul className="nav-list">
@@ -20,12 +24,24 @@ export default function Nav({ activeSectionId }: NavProps) {
           const sectionId = href.slice(1);
           const isActive = activeSectionId === sectionId;
           return (
-            <li key={href}>
+            <li key={href} style={{ position: "relative" }}>
               <a
                 href={href}
                 className={`nav-link${isActive ? " nav-link--active" : ""}`}
               >
                 {label}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.span
+                      className="nav-active-bg"
+                      layoutId="nav-active"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </AnimatePresence>
               </a>
             </li>
           );
@@ -39,6 +55,16 @@ export default function Nav({ activeSectionId }: NavProps) {
           >
             GitHub
           </a>
+        </li>
+        <li>
+          <button
+            className="nav-theme-toggle"
+            onClick={toggleMode}
+            aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
+          >
+            {mode === "dark" ? "☀" : "☾"}
+          </button>
         </li>
       </ul>
     </nav>

@@ -23,9 +23,9 @@ dib.writeUInt16LE(1, 12)
 dib.writeUInt16LE(32, 14)
 const pixels = Buffer.alloc(1024)
 for (let i = 0; i < 1024; i += 4) {
-  pixels[i] = 0x87
-  pixels[i + 1] = 0xe7
-  pixels[i + 2] = 0x7e
+  pixels[i] = 0xFF   // B (ICO is BGRA)
+  pixels[i + 1] = 0x7A  // G
+  pixels[i + 2] = 0x00  // R  (#007AFF)
   pixels[i + 3] = 255
 }
 const andMask = Buffer.alloc(32)

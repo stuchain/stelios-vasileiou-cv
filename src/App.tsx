@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -6,14 +7,15 @@ import CV from "./components/CV";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import BackToTop from "./components/BackToTop";
+import AnimatedBackground from "./components/ui/AnimatedBackground";
+import SettingsFAB from "./components/ui/SettingsFAB";
 import { useActiveSection } from "./hooks/useActiveSection";
 
 const SECTION_IDS = ["hero", "about", "resume", "projects", "skills", "contact"];
 
-function App() {
+function AppContent() {
   const activeSectionId = useActiveSection();
 
-  // Keyboard: Alt+1..6 scroll to sections (Hero, About, Resume, Projects, Skills, Contact)
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (!e.altKey || e.key < "1" || e.key > "6") return;
@@ -31,6 +33,7 @@ function App() {
 
   return (
     <>
+      <AnimatedBackground />
       <Nav activeSectionId={activeSectionId ?? undefined} />
       <section id="hero">
         <Hero />
@@ -40,8 +43,15 @@ function App() {
       <Projects />
       <Contact />
       <BackToTop visible={activeSectionId !== null && activeSectionId !== "hero"} />
+      <SettingsFAB />
     </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}

@@ -1,13 +1,13 @@
-import { cv, type CVEntry } from '../data/generated'
-import PixelPanel from './ui/PixelPanel'
-import Skills from './Skills'
-import { useInView } from '../hooks/useInView'
+import { cv, type CVEntry } from "../data/generated";
+import GlassPanel from "./ui/GlassPanel";
+import Skills from "./Skills";
+import SectionReveal from "./ui/SectionReveal";
 
 function CVEntryCard({ entry }: { entry: CVEntry }) {
-  const thesisLabel = entry.thesisLabel?.trim() || 'View thesis'
+  const thesisLabel = entry.thesisLabel?.trim() || "View thesis";
   return (
     <article className="cv-entry">
-      <PixelPanel>
+      <GlassPanel hoverable>
         <p className="cv-entry-period">{entry.period}</p>
         <h4 className="cv-entry-title">{entry.title}</h4>
         <p className="cv-entry-org">{entry.org}</p>
@@ -24,17 +24,15 @@ function CVEntryCard({ entry }: { entry: CVEntry }) {
             </a>
           </p>
         )}
-      </PixelPanel>
+      </GlassPanel>
     </article>
-  )
+  );
 }
 
 export default function CV() {
-  const { ref, isInView } = useInView()
-
   return (
     <section id="resume">
-      <div ref={ref} className={`fade-in-up${isInView ? ' is-visible' : ''}`}>
+      <SectionReveal>
         <h2>Resume</h2>
 
         <h3>Education</h3>
@@ -57,7 +55,7 @@ export default function CV() {
         )}
 
         <Skills />
-      </div>
+      </SectionReveal>
     </section>
-  )
+  );
 }
