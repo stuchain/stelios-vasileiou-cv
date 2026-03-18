@@ -2,7 +2,7 @@
 
 [**▶ Visit live site**](https://stuchain.github.io/portfolio/)
 
-Modern developer portfolio featuring an **iOS 26-inspired liquid glass UI**, built with **Vite + React 18 + TypeScript + Framer Motion**.
+Modern developer portfolio featuring an **glass UI**, built with **Vite + React 18 + TypeScript + Framer Motion**.
 All content is driven from a single `profile.md` file — edit once, regenerate, deploy.
 
 ---
@@ -13,7 +13,7 @@ Requires **Node.js 18+** and **npm**.
 
 ```bash
 git clone <this-repo-url>
-cd stelios-vasileiou-cv
+cd portfolio
 npm install
 npm run dev
 ```
@@ -35,9 +35,7 @@ Then open the URL from the terminal (usually `http://localhost:5173`).
 
 ---
 
-## Liquid glass design system
-
-The UI is inspired by Apple's iOS 26 liquid glass aesthetic:
+## Glass design system
 
 - **Frosted glass panels** — `backdrop-filter: blur() saturate()` with semi-transparent backgrounds and multi-layer inset box shadows for rim lighting.
 - **Pointer-reactive spotlight** — a per-element radial gradient that smoothly follows the cursor via a custom `useLocalPointer` hook using `requestAnimationFrame` + lerp interpolation. Appears instantly on hover, vanishes instantly on leave.
@@ -161,7 +159,7 @@ For this repo, deployment is configured via **GitHub Actions**:
 1. In GitHub: **Settings → Pages**.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 3. Push to `main`. The workflow builds and deploys to:
-   `https://stuchain.github.io/stelios-vasileiou-cv/`
+   `https://stuchain.github.io/portfolio/`
 
 ---
 
