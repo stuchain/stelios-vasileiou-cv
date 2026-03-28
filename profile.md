@@ -2,7 +2,7 @@
 name: Stelios Vasileiou
 githubUsername: stuchain
 tagline: Full-Stack Developer at Netcompany.
-taglineLine2: " "
+taglineLine2:
 location: Athens, Greece
 avatarUrl: ""
 
