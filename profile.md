@@ -13,8 +13,9 @@ social:
   phone: "+306982880304"
 
 bio:
-  - "Software Developerrerrrrrrrrr, based in Athens, Greece with experience in the Danish banking sector, UI architecture, and enterprise integrations"
-  - "Bachelor thesis on Ethereum tokenization; built a Solana-based secure channel for decentralized identity verification; developed an IoT Oracle Gateway for connecting IoT telemetry with blockchain-based verification."
+  - "I'm Stelios and I'm a Software Developer based in Athens, Greece with experience in the Danish banking sector, UI architecture, and enterprise integrations."
+  - "My work spans blockchain, cryptography, and developer-focused tools, including a bachelor thesis on Ethereum tokenization, a Solana-based secure-channel demo for decentralized identity verification, an IoT Oracle Gateway for connecting signed telemetry with on-chain verification, and CuePoint, a fully working app for cleaning and enriching Rekordbox libraries with official Beatport metadata."
+  - "Outside of coding, I love travelling, producing house music, and DJing, interests that strongly influence my creativity and the projects I'm building."
 
 education:
   - period: "10/2025 – Present"

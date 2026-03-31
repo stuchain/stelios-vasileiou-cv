@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:hero-source": "node scripts/check-hero-source.cjs",
     "generate": "node scripts/generate-data.cjs",
     "dev": "npm run generate && vite",
     "build": "npm run generate && tsc -b && vite build",

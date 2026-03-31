@@ -40,7 +40,7 @@ html {
   --page-padding-x: 1.75rem;
   --page-padding-x-narrow: 1.25rem;
   --page-padding-y: 3rem;
-  --stack-gap-lg: 4.25rem;
+  --stack-gap-lg: 4.75rem;
   --stack-gap-xl: 5.5rem;
   --line-length: 68ch;
   --body-line-height: 1.64;
@@ -105,12 +105,12 @@ main {
 .page-shell {
   max-width: var(--content-width-wide);
   margin: 0 auto;
-  padding: 4.5rem var(--page-padding-x) 6rem;
+  padding: 5rem var(--page-padding-x) 6rem;
 }
 
 @media (max-width: 720px) {
   .page-shell {
-    padding: 3rem var(--page-padding-x-narrow) 4rem;
+    padding: 3.5rem var(--page-padding-x-narrow) 4rem;
   }
 }
 
@@ -168,7 +168,7 @@ h3 {
 }
 
 p {
-  margin-bottom: 0.72rem;
+  margin-bottom: 0.9rem;
   max-width: var(--line-length);
 }
 
@@ -254,7 +254,7 @@ section[id] {
 .hero-inner {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.3rem;
 }
 
 .hero-name {
@@ -269,7 +269,7 @@ section[id] {
 }
 
 .hero-meta {
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   color: var(--text-muted);
 }
 
