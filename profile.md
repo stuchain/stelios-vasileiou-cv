@@ -13,7 +13,7 @@ social:
   phone: "+306982880304"
 
 bio:
-  - "Full-Stack Developer with experience in the Danish banking sector, UI architecture, and enterprise integrations"
+  - "Software Developerrerrrrrrrrr, based in Athens, Greece with experience in the Danish banking sector, UI architecture, and enterprise integrations"
   - "Bachelor thesis on Ethereum tokenization; built a Solana-based secure channel for decentralized identity verification; developed an IoT Oracle Gateway for connecting IoT telemetry with blockchain-based verification."
 
 education:

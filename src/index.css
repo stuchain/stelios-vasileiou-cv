@@ -622,7 +622,7 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(18, 18, 28, 0.92);
+  background: rgba(30, 30, 30, 0.92);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(10px);

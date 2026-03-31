@@ -3,7 +3,7 @@
 [**▶ Visit live site**](https://stuchain.github.io/portfolio/)
 
 Modern developer portfolio featuring an **glass UI**, built with **Vite + React 18 + TypeScript + Framer Motion**.
-All content is driven from a single `profile.md` file — edit once, regenerate, deploy.
+All content is driven from a single `profile.md` file — edit once, auto-sync in dev, deploy.
 
 ---
 
@@ -89,13 +89,14 @@ bio:
   - "Short about paragraph 2."
 ```
 
-Whenever you change `profile.md`, regenerate data with:
+Whenever you change `profile.md`, data is synced automatically while `npm run dev` is running.
+If you want to regenerate manually, run:
 
 ```bash
 npm run generate
 ```
 
-or simply run `npm run dev` — the generator runs automatically before the dev server. The script writes `src/data/generated.ts`; do **not** edit files in `src/data/` by hand.
+`npm run dev` still runs a pre-start generation, and now also watches `profile.md` for changes and regenerates `src/data/generated.ts` live. `npm run build` always regenerates before bundling. Do **not** edit files in `src/data/` by hand.
 
 ---
 
@@ -103,7 +104,7 @@ or simply run `npm run dev` — the generator runs automatically before the dev 
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Generate data from `profile.md` and start the Vite dev server |
+| `npm run dev` | Generate data, start Vite, and live-sync updates from `profile.md` |
 | `npm run build` | Generate data, type-check, and produce a production bundle in `dist/` |
 | `npm run preview` | Serve the built `dist/` locally for a production-like preview |
 | `npm run generate` | Regenerate `src/data/generated.ts` from `profile.md` |

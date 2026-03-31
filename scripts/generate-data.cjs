@@ -2,84 +2,84 @@ const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
 
-const root = process.cwd()
-const profilePath = path.join(root, 'profile.md')
-const outPath = path.join(root, 'src', 'data', 'generated.ts')
+function generateProfileData(projectRoot = process.cwd()) {
+  const profilePath = path.join(projectRoot, 'profile.md')
+  const outPath = path.join(projectRoot, 'src', 'data', 'generated.ts')
 
-const raw = fs.readFileSync(profilePath, 'utf-8')
-const { data } = matter(raw)
+  const raw = fs.readFileSync(profilePath, 'utf-8')
+  const { data } = matter(raw)
 
-const githubUsername = data.githubUsername || ''
+  const githubUsername = data.githubUsername || ''
 
-const profile = {
-  name: data.name ?? '',
-  githubUsername,
-  tagline: data.tagline ?? '',
-  taglineLine2: data.taglineLine2 ?? '',
-  location: data.location ?? '',
-  avatarUrl: data.avatarUrl ?? '',
-}
+  const profile = {
+    name: data.name ?? '',
+    githubUsername,
+    tagline: data.tagline ?? '',
+    taglineLine2: data.taglineLine2 ?? '',
+    location: data.location ?? '',
+    avatarUrl: data.avatarUrl ?? '',
+  }
 
-const social = {
-  github: data.social?.github ?? `https://github.com/${githubUsername}`,
-  linkedin: data.social?.linkedin ?? '',
-  email: data.social?.email ?? '',
-  phone: data.social?.phone ?? undefined,
-}
+  const social = {
+    github: data.social?.github ?? `https://github.com/${githubUsername}`,
+    linkedin: data.social?.linkedin ?? '',
+    email: data.social?.email ?? '',
+    phone: data.social?.phone ?? undefined,
+  }
 
-const bio = Array.isArray(data.bio) ? data.bio : (data.bio ? [data.bio] : [])
+  const bio = Array.isArray(data.bio) ? data.bio : (data.bio ? [data.bio] : [])
 
-const education = Array.isArray(data.education) ? data.education : []
-const experience = Array.isArray(data.experience) ? data.experience : []
-const secondaryExperience = Array.isArray(data.secondaryExperience) ? data.secondaryExperience : []
-const cv = {
-  education: education.map((e) => ({
-    period: e.period ?? '',
-    title: e.title ?? '',
-    org: e.org ?? '',
-    description: e.description,
-    thesisUrl: e.thesisUrl,
-    thesisLabel: e.thesisLabel,
-  })),
-  experience: experience.map((e) => ({
-    period: e.period ?? '',
-    title: e.title ?? '',
-    org: e.org ?? '',
-    description: e.description,
-  })),
-  secondaryExperience: secondaryExperience.map((e) => ({
-    period: e.period ?? '',
-    title: e.title ?? '',
-    org: e.org ?? '',
-    description: e.description,
-  })),
-  skills: data.cvSkills ?? data.cv?.skills ?? [],
-  interests: data.interests ?? data.cv?.interests ?? [],
-}
+  const education = Array.isArray(data.education) ? data.education : []
+  const experience = Array.isArray(data.experience) ? data.experience : []
+  const secondaryExperience = Array.isArray(data.secondaryExperience) ? data.secondaryExperience : []
+  const cv = {
+    education: education.map((e) => ({
+      period: e.period ?? '',
+      title: e.title ?? '',
+      org: e.org ?? '',
+      description: e.description,
+      thesisUrl: e.thesisUrl,
+      thesisLabel: e.thesisLabel,
+    })),
+    experience: experience.map((e) => ({
+      period: e.period ?? '',
+      title: e.title ?? '',
+      org: e.org ?? '',
+      description: e.description,
+    })),
+    secondaryExperience: secondaryExperience.map((e) => ({
+      period: e.period ?? '',
+      title: e.title ?? '',
+      org: e.org ?? '',
+      description: e.description,
+    })),
+    skills: data.cvSkills ?? data.cv?.skills ?? [],
+    interests: data.interests ?? data.cv?.interests ?? [],
+  }
 
-const skills = Array.isArray(data.skills)
-  ? data.skills.map((s) => ({
-      category: s.category ?? '',
-      items: Array.isArray(s.items) ? s.items : [],
-    }))
-  : []
+  const skills = Array.isArray(data.skills)
+    ? data.skills.map((s) => ({
+        category: s.category ?? '',
+        items: Array.isArray(s.items) ? s.items : [],
+      }))
+    : []
 
-const featuredRepos = Array.isArray(data.featuredRepos) ? data.featuredRepos : []
-const featuredCount = typeof data.featuredCount === 'number' ? data.featuredCount : featuredRepos.length
-const excludedRepos = Array.isArray(data.excludedRepos) ? data.excludedRepos : []
+  const featuredRepos = Array.isArray(data.featuredRepos) ? data.featuredRepos : []
+  const featuredCount = typeof data.featuredCount === 'number' ? data.featuredCount : featuredRepos.length
+  const excludedRepos = Array.isArray(data.excludedRepos) ? data.excludedRepos : []
 
-const baseUrl = `https://github.com/${githubUsername}`
-const fallbackRepos = (Array.isArray(data.fallbackRepos) ? data.fallbackRepos : []).map((r) => ({
-  name: r.name ?? '',
-  description: r.description ?? null,
-  language: r.language ?? null,
-  stargazers_count: typeof r.stargazers_count === 'number' ? r.stargazers_count : 0,
-  updated_at: r.updated_at ?? '',
-  html_url: `${baseUrl}/${encodeURIComponent(r.name ?? '')}`,
-  topics: Array.isArray(r.topics) ? r.topics : undefined,
-}))
+  const baseUrl = `https://github.com/${githubUsername}`
+  const fallbackRepos = (Array.isArray(data.fallbackRepos) ? data.fallbackRepos : []).map((r) => ({
+    name: r.name ?? '',
+    description: r.description ?? null,
+    language: r.language ?? null,
+    stargazers_count: typeof r.stargazers_count === 'number' ? r.stargazers_count : 0,
+    updated_at: r.updated_at ?? '',
+    html_url: `${baseUrl}/${encodeURIComponent(r.name ?? '')}`,
+    topics: Array.isArray(r.topics) ? r.topics : undefined,
+  }))
 
-const out = `// Generated from profile.md – do not edit by hand.
+  const out = `// Generated from profile.md – do not edit by hand.
 /* eslint-disable */
 import type { Profile, Social } from '../types/profile'
 import type { CVData } from './cv'
@@ -109,5 +109,13 @@ export type { RepoMinimal } from './fallbackRepos'
 export type { SkillCategory } from './skills'
 `
 
-fs.writeFileSync(outPath, out, 'utf-8')
-console.log('Generated src/data/generated.ts from profile.md')
+  fs.writeFileSync(outPath, out, 'utf-8')
+  return outPath
+}
+
+module.exports = { generateProfileData }
+
+if (require.main === module) {
+  const outPath = generateProfileData()
+  console.log(`Generated ${path.relative(process.cwd(), outPath)} from profile.md`)
+}
