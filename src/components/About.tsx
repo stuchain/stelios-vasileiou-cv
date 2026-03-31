@@ -1,5 +1,4 @@
 import { bio } from "../data/generated";
-import GlassPanel from "./ui/GlassPanel";
 import SectionReveal from "./ui/SectionReveal";
 
 function getParagraphs(content: string | string[]): string[] {
@@ -11,16 +10,18 @@ export default function About() {
   const paragraphs = getParagraphs(bio);
 
   return (
-    <section id="about">
+    <section id="about" className="section">
       <SectionReveal>
-        <h2>About</h2>
-        <GlassPanel className="about-content">
+        <header className="section-header">
+          <h2 className="section-title">About</h2>
+        </header>
+        <div className="about-body">
           {paragraphs.length > 0 ? (
             paragraphs.map((para, i) => <p key={i}>{para}</p>)
           ) : (
             <p>About me.</p>
           )}
-        </GlassPanel>
+        </div>
       </SectionReveal>
     </section>
   );

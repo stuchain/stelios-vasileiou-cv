@@ -1,10 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { social } from "../data/generated";
-import { useTheme } from "../contexts/ThemeContext";
-import useLocalPointer from "../hooks/useLocalPointer";
 
 const navLinks = [
-  { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
@@ -16,45 +12,23 @@ interface NavProps {
 }
 
 export default function Nav({ activeSectionId }: NavProps) {
-  const { mode, toggleMode } = useTheme();
-  const pointer = useLocalPointer();
-
   return (
-    <nav
-      className="nav-bar"
-      aria-label="Main navigation"
-      onMouseMove={pointer.onMouseMove}
-      onMouseEnter={pointer.onMouseEnter}
-      onMouseLeave={pointer.onMouseLeave}
-    >
-      <ul className="nav-list">
-        {navLinks.map(({ href, label }) => {
-          const sectionId = href.slice(1);
-          const isActive = activeSectionId === sectionId;
-          return (
-            <li key={href} style={{ position: "relative" }}>
+    <nav className="nav" aria-label="Main navigation">
+      <div className="nav-inner">
+        <div className="nav-links">
+          {navLinks.map(({ href, label }) => {
+            const sectionId = href.slice(1);
+            const isActive = activeSectionId === sectionId;
+            return (
               <a
+                key={href}
                 href={href}
                 className={`nav-link${isActive ? " nav-link--active" : ""}`}
               >
                 {label}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.span
-                      className="nav-active-bg"
-                      layoutId="nav-active"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                </AnimatePresence>
               </a>
-            </li>
-          );
-        })}
-        <li>
+            );
+          })}
           <a
             href={social.github}
             className="nav-link"
@@ -63,18 +37,8 @@ export default function Nav({ activeSectionId }: NavProps) {
           >
             GitHub
           </a>
-        </li>
-        <li>
-          <button
-            className="nav-theme-toggle"
-            onClick={toggleMode}
-            aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
-            title={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
-          >
-            {mode === "dark" ? "☀" : "☾"}
-          </button>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   );
 }

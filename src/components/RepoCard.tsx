@@ -1,5 +1,4 @@
 import type { RepoMinimal } from "../data/generated";
-import GlassPanel from "./ui/GlassPanel";
 
 function formatUpdatedAt(updated_at: string): string {
   if (!updated_at) return "\u2014";
@@ -21,28 +20,27 @@ export default function RepoCard({ repo }: RepoCardProps) {
   const updatedLabel = formatUpdatedAt(repo.updated_at);
 
   return (
-    <article className="repo-card">
-      <GlassPanel className="repo-card-panel" hoverable>
-        <h3 className="repo-card-title">
+    <article className="project-item">
+      <div className="project-heading">
+        <h3 className="project-name">
           <a
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="repo-card-link"
           >
             {repo.name}
-            <span className="repo-card-external" aria-hidden> ↗</span>
+            <span aria-hidden> ↗</span>
           </a>
         </h3>
-        <p className="repo-card-desc">{description}</p>
-        <div className="repo-card-meta">
-          {repo.language && <span className="repo-card-lang">{repo.language}</span>}
-          <span className="repo-card-stars" aria-label={`${repo.stargazers_count} stars`}>
+        <span className="project-date">Updated {updatedLabel}</span>
+      </div>
+      <p className="project-desc">{description}</p>
+      <div className="project-meta">
+        {repo.language && <span>{repo.language}</span>}
+        <span aria-label={`${repo.stargazers_count} stars`}>
             ★ {repo.stargazers_count}
-          </span>
-          <span className="repo-card-date">Updated {updatedLabel}</span>
-        </div>
-      </GlassPanel>
+        </span>
+      </div>
     </article>
   );
 }

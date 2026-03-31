@@ -5,20 +5,22 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
-      <div className="footer-links">
-        <a href={social.github} target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-        <span className="footer-dot" aria-hidden="true" />
-        <a href={social.linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-        <span className="footer-dot" aria-hidden="true" />
-        <a href={social.email}>Email</a>
+      <div className="footer-line">
+        <div className="footer-links">
+          <a href={social.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <span className="footer-dot" aria-hidden="true">•</span>
+          <a href={social.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <span className="footer-dot" aria-hidden="true">•</span>
+          <a href={social.email}>Email</a>
+        </div>
+        <p>
+          &copy; {year} {profile.name}
+        </p>
       </div>
-      <p className="footer-copy">
-        &copy; {year} {profile.name}
-      </p>
     </footer>
   );
 }

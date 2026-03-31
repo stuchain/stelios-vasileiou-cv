@@ -1,38 +1,17 @@
-import { motion } from "framer-motion";
-import { profile, social } from "../data/generated";
-import GlassPanel from "./ui/GlassPanel";
-import GlassButton from "./ui/GlassButton";
-import BlinkingCursor from "./ui/BlinkingCursor";
+import { profile } from "../data/generated";
 
 export default function Hero() {
   return (
-    <div className="hero-section">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <GlassPanel className="hero-card">
-          <h1 className="hero-name">{profile.name}</h1>
-          <p className="hero-tagline">
-            {profile.tagline}
-            {profile.taglineLine2 && (
-              <>
-                <br />
-                {profile.taglineLine2}
-              </>
-            )}
-            <BlinkingCursor />
-          </p>
-          <div className="hero-ctas">
-            <GlassButton href="#projects">View Projects</GlassButton>
-            <GlassButton href={social.github}>GitHub</GlassButton>
-            <GlassButton href="#contact" variant="secondary">
-              Contact
-            </GlassButton>
-          </div>
-        </GlassPanel>
-      </motion.div>
+    <div className="section section--first hero">
+      <div className="hero-inner">
+        <h1 className="hero-name">{profile.name}</h1>
+        <p className="hero-tagline">
+          Software Developer, based in Athens, Greece with experience in the Danish banking sector, UI architecture, and enterprise integrations
+        </p>
+        <p className="hero-meta">
+          Bachelor thesis on Ethereum tokenization; built a Solana-based secure channel for decentralized identity verification; developed an IoT Oracle Gateway for connecting IoT telemetry with blockchain-based verification.
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,4 @@
 import { social } from "../data/generated";
-import GlassPanel from "./ui/GlassPanel";
-import GlassButton from "./ui/GlassButton";
 import SectionReveal from "./ui/SectionReveal";
 
 const EMAIL_ADDRESS = social.email.replace(/^mailto:/i, "").trim() || "you@example.com";
@@ -28,10 +26,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact">
+    <section id="contact" className="section">
       <SectionReveal>
-        <h2>Contact</h2>
-        <div className="contact-content">
+        <header className="section-header">
+          <h2 className="section-title">Contact</h2>
+        </header>
+        <div className="section-body">
           <div className="contact-links">
             <a
               href={social.github}
@@ -58,10 +58,10 @@ export default function Contact() {
               </a>
             )}
           </div>
-          <GlassPanel className="contact-form-wrapper">
+          <div className="contact-form-wrap">
             <h3>Send me a message</h3>
             <form onSubmit={handleSubmit} className="contact-form" noValidate>
-              <label htmlFor="contact-name">Name</label>
+              <label htmlFor="contact-name" className="contact-label">Name</label>
               <input
                 id="contact-name"
                 type="text"
@@ -69,7 +69,7 @@ export default function Contact() {
                 className="contact-input"
                 autoComplete="name"
               />
-              <label htmlFor="contact-email">Email</label>
+              <label htmlFor="contact-email" className="contact-label">Email</label>
               <input
                 id="contact-email"
                 type="email"
@@ -77,18 +77,18 @@ export default function Contact() {
                 className="contact-input"
                 autoComplete="email"
               />
-              <label htmlFor="contact-message">Message</label>
+              <label htmlFor="contact-message" className="contact-label">Message</label>
               <textarea
                 id="contact-message"
                 name="message"
                 className="contact-input contact-textarea"
                 rows={4}
               />
-              <GlassButton type="submit">
+              <button type="submit" className="text-action">
                 Send
-              </GlassButton>
+              </button>
             </form>
-          </GlassPanel>
+          </div>
         </div>
       </SectionReveal>
     </section>

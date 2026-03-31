@@ -20,24 +20,26 @@ export default function Projects() {
   }, [repos, langFilter]);
 
   return (
-    <section id="projects">
+    <section id="projects" className="section">
       <SectionReveal>
-        <h2>Projects</h2>
+        <header className="section-header">
+          <h2 className="section-title">Projects</h2>
+        </header>
 
         {loading && (
-          <p className="projects-loading" aria-live="polite">
+          <p className="projects-status" aria-live="polite">
             Loading repositories...
           </p>
         )}
 
         {error && (
-          <p className="projects-error" role="alert">
+          <p className="projects-status" role="alert">
             {error}
           </p>
         )}
 
         {!loading && repos.length === 0 && (
-          <p className="projects-empty">No repositories to show.</p>
+          <p className="projects-status">No repositories to show.</p>
         )}
 
         {!loading && repos.length > 0 && (
@@ -46,7 +48,7 @@ export default function Projects() {
               <div className="projects-filters" role="group" aria-label="Filter by language">
                 <button
                   type="button"
-                  className={`filter-chip ${!langFilter || langFilter === ALL_LANG ? "filter-chip--active" : ""}`}
+                  className="projects-filter-btn text-action"
                   onClick={() => setLangFilter(null)}
                   aria-pressed={!langFilter || langFilter === ALL_LANG}
                 >
@@ -56,7 +58,7 @@ export default function Projects() {
                   <button
                     key={lang}
                     type="button"
-                    className={`filter-chip ${langFilter === lang ? "filter-chip--active" : ""}`}
+                    className="projects-filter-btn text-action"
                     onClick={() => setLangFilter(lang)}
                     aria-pressed={langFilter === lang}
                   >
@@ -67,7 +69,7 @@ export default function Projects() {
             )}
 
             {filteredRepos.length > 0 && (
-              <div className="projects-grid">
+              <div className="projects-list">
                 {filteredRepos.map((repo) => (
                   <RepoCard key={repo.name} repo={repo} />
                 ))}
@@ -75,7 +77,7 @@ export default function Projects() {
             )}
 
             {filteredRepos.length === 0 && languages.length > 0 && (
-              <p className="projects-empty">No repositories match the selected filter.</p>
+              <p className="projects-status">No repositories match the selected filter.</p>
             )}
           </>
         )}
