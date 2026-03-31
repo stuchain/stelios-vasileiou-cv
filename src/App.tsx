@@ -3,6 +3,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import CV from "./components/CV";
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import BackToTop from "./components/BackToTop";
@@ -40,6 +41,7 @@ function AppContent() {
             <Hero />
           </section>
           <CV />
+          <Skills />
           <Projects />
           <Contact />
           <Footer />

@@ -1,5 +1,4 @@
 import { cv, type CVEntry } from "../data/generated";
-import Skills from "./Skills";
 import SectionReveal from "./ui/SectionReveal";
 
 function CVEntryCard({ entry }: { entry: CVEntry }) {
@@ -54,7 +53,6 @@ export default function CV() {
           </>
         )}
 
-        <Skills />
       </SectionReveal>
     </section>
   );
