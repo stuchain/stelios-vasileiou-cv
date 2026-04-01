@@ -31,7 +31,7 @@ export default function Nav({ activeSectionId }: NavProps) {
           })}
           <a
             href={social.github}
-            className="nav-link"
+            className="nav-link nav-link--accent"
             target="_blank"
             rel="noopener noreferrer"
           >

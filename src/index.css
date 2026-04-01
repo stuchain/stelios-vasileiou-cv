@@ -271,6 +271,13 @@ section[id] {
   letter-spacing: -0.06em;
 }
 
+.hero-name-accent {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-strong), rgba(214, 178, 124, 0.25));
+}
+
 .hero-tagline {
   font-size: 0.98rem;
   color: var(--text-muted);
@@ -687,6 +694,14 @@ section[id] {
 
 .nav-link--active {
   color: var(--link);
+}
+
+.nav-link--accent {
+  color: var(--link);
+}
+
+.nav-link--accent:hover {
+  color: var(--link-hover);
 }
 
 .nav-link:hover {

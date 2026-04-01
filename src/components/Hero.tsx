@@ -9,6 +9,7 @@ export default function Hero() {
     <div className="section section--first hero">
       <div className="hero-inner">
         <h1 className="hero-name">{profile.name}</h1>
+        <span className="hero-name-accent" aria-hidden="true" />
         {heroLines.map((line, index) => (
           <p key={`${line}-${index}`} className={index === 0 ? "hero-tagline" : "hero-meta"}>
             {line}
